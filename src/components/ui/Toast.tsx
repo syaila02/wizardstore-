@@ -16,12 +16,12 @@ export default function Toast({ isVisible, onClose }: ToastProps) {
 
   return (
     <div
-      className={`fixed top-5 right-5 z-[250] transition-opacity duration-300 ${
-        isVisible ? 'opacity-100' : 'opacity-0 pointer-events-none'
+      className={`fixed top-8 right-8 z-[250] transition-all duration-700 ${
+        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4 pointer-events-none'
       }`}
     >
-      <div className="bg-hp-dark border-2 border-hp-gold text-hp-gold px-6 py-3 shadow-gold-glow rounded-sm font-cinzel text-sm tracking-widest">
-        ✨ Artifact successfully added to your Owl Post!
+      <div className="bg-hp-dark border border-hp-gold/40 text-hp-gold px-8 py-4 shadow-2xl font-cinzel text-[10px] tracking-[0.3em] uppercase">
+        Artifact Summoned
       </div>
     </div>
   );

@@ -9,32 +9,33 @@ export default function MagicalModal() {
   if (!lastAddedItem) return null;
 
   return (
-    <div className="fixed inset-0 z-[200] flex items-center justify-center p-4 bg-hp-dark/80 backdrop-blur-sm animate-in fade-in duration-300">
-      <div className="relative bg-hp-dark border-      {/* Corner Ornaments */}
-        <div className="absolute top-0 left-0 w-8 h-8 border-t-4 border-l-4 border-hp-gold"></div>
-        <div className="absolute bottom-0 right-0 w-8 h-8 border-b-4 border-r-4 border-hp-gold"></div>
+    <div className="fixed inset-0 z-[200] flex items-center justify-center p-4 bg-hp-dark/95 backdrop-blur-sm animate-in fade-in duration-700">
+      <div className="relative bg-hp-dark border border-hp-gold/30 p-12 max-w-md w-full">
+        {/* Corner Ornaments */}
+        <div className="absolute top-4 left-4 w-8 h-8 border-t border-l border-hp-gold/40"></div>
+        <div className="absolute bottom-4 right-4 w-8 h-8 border-b border-r border-hp-gold/40"></div>
 
-        <div className="text-center space-y-6">
+        <div className="text-center space-y-8">
           <div className="flex justify-center">
-            <div className="h-20 w-20 bg-hp-gold rounded-full flex items-center justify-center shadow-gold-glow animate-bounce">
-              <span className="text-4xl">🦉</span>
+            <div className="h-16 w-16 border border-hp-gold/30 flex items-center justify-center grayscale opacity-80">
+              <span className="text-3xl">🦉</span>
             </div>
           </div>
           
-          <h2 className="text-3xl font-bold text-hp-gold tracking-widest uppercase font-cinzel">
-            Artifact Summoned!
+          <h2 className="text-xl font-bold text-hp-gold tracking-[0.3em] uppercase font-cinzel">
+            Artifact Summoned
           </h2>
           
-          <p className="text-white text-lg italic font-serif">
-            "The <span className="text-hp-gold font-bold"> {lastAddedItem} </span> has been successfully added to your magical post bag."
+          <p className="text-hp-parchment/80 text-sm italic font-serif leading-relaxed">
+            "The <span className="text-hp-gold"> {lastAddedItem} </span> has been successfully added to your magical post bag."
           </p>
 
-          <div className="pt-4">
+          <div className="pt-6">
             <Button 
               onClick={() => setLastAddedItem(null)}
-              className="w-full bg-hp-gold text-hp-dark hover:bg-white py-3 text-xl font-extrabold"
+              className="w-full py-3"
             >
-              CONTINUE SHOPPING
+              Continue Shopping
             </Button>
           </div>
         </div>

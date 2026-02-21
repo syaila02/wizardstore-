@@ -9,10 +9,12 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        'hp-red': '#741010', // Merah Gryffindor lebih gelap & elegan
-        'hp-gold': '#FFD700',
-        'hp-dark': '#121212',
-        'hp-parchment': '#f4e4bc',
+        'hp-gold': '#c5a059',
+        'hp-dark': '#0a0a0a',
+        'hp-charcoal': '#1a1a1a',
+        'hp-parchment': '#e2d1b0',
+        'hp-emerald': '#1a3024',
+        'hp-burgundy': '#3b0d0d',
       },
       fontFamily: {
         cinzel: ['var(--font-cinzel)', 'serif'],

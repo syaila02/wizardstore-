@@ -13,8 +13,6 @@ interface CartItem extends Product {
 
 interface CartContextType {
   cartItems: CartItem[];
-  lastAddedItem: string | null;
-  setLastAddedItem: (title: string | null) => void;
   addToCart: (product: Product) => void;
   removeFromCart: (productId: number) => void;
   updateQuantity: (productId: number, quantity: number) => void;
@@ -28,7 +26,6 @@ const CartContext = createContext<CartContextType | undefined>(undefined);
 export const CartProvider = ({ children }: { children: ReactNode }) => {
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
   const [isInitialized, setIsInitialized] = useState(false);
-  const [lastAddedItem, setLastAddedItem] = useState<string | null>(null);
 
   useEffect(() => {
     const savedCart = localStorage.getItem('cartItems');
@@ -45,7 +42,6 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
   }, [cartItems, isInitialized]);
 
   const addToCart = (product: Product) => {
-    setLastAddedItem(product.title);
     setCartItems(prevItems => {
       const existingItem = prevItems.find(item => item.id === product.id);
       if (existingItem) {
@@ -95,6 +91,8 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
         clearCart,
         getCartTotal,
         getCartItemCount,
+        lastAddedItem, 
+        setLastAddedItem,
       }}
     >
       {children}

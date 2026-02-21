@@ -12,11 +12,12 @@ export const fetchProducts = async (): Promise<Product[]> => {
     }
     const data = await res.json();
     
-    await new Promise(resolve => setTimeout(resolve, 500));
+    // Reduced simulation delay for better UX
+    await new Promise(resolve => setTimeout(resolve, 100));
     return data.products;
   } catch (error) {
-    console.error('Error fetching products:', error);
-    throw error;
+    console.error('API Error in fetchProducts:', error);
+    throw new Error('Failed to retrieve magical artifacts from the vault.');
   }
 };
 
@@ -28,10 +29,11 @@ export const fetchProductById = async (id: string): Promise<Product> => {
     }
     const data = await res.json();
     
-    await new Promise(resolve => setTimeout(resolve, 500));
+    // Reduced simulation delay for better UX
+    await new Promise(resolve => setTimeout(resolve, 100));
     return data;
   } catch (error) {
-    console.error(`Error fetching product ${id}:`, error);
-    throw error;
+    console.error(`API Error in fetchProductById (${id}):`, error);
+    throw new Error('This artifact seems to be missing from our records.');
   }
 };

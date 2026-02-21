@@ -13,12 +13,12 @@ export default function Button({
   className = '',
   ...props
 }: ButtonProps) {
-  const baseStyles = 'font-cinzel font-bold rounded-sm transition-all duration-300 uppercase tracking-widest border-2';
+  const baseStyles = 'font-cinzel font-semibold transition-all duration-500 uppercase tracking-[0.2em] border';
 
   const variantStyles = {
-    primary: 'bg-hp-gold text-hp-dark border-hp-gold hover:bg-white hover:border-white shadow-gold-glow',
-    secondary: 'bg-hp-dark text-hp-gold border-hp-gold hover:bg-hp-gold hover:text-hp-dark',
-    danger: 'bg-transparent text-red-500 border-red-500 hover:bg-red-500 hover:text-white',
+    primary: 'bg-transparent text-hp-gold border-hp-gold/60 hover:border-hp-gold hover:bg-hp-gold/5',
+    secondary: 'bg-hp-dark text-hp-parchment border-hp-gold/40 hover:border-hp-gold hover:text-hp-gold',
+    danger: 'bg-transparent text-red-800 border-red-900/40 hover:border-red-800 hover:text-red-700',
   };
 
   const sizeStyles = {

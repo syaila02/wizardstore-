@@ -23,68 +23,64 @@ export default function CartPage() {
   };
 
   return (
-    <div className="max-w-4xl mx-auto bg-hp-dark border-4 border-hp-gold p-8 shadow-gold-glow relative">
-      <div className="absolute top-2 left-2 w-8 h-8 border-t-2 border-l-2 border-hp-gold opacity-50"></div>
-      <div className="absolute bottom-2 right-2 w-8 h-8 border-b-2 border-r-2 border-hp-gold opacity-50"></div>
+    <div className="max-w-4xl mx-auto bg-hp-dark border border-hp-gold/20 p-12 relative">
+      <div className="absolute top-4 left-4 w-12 h-12 border-t border-l border-hp-gold/30"></div>
+      <div className="absolute bottom-4 right-4 w-12 h-12 border-b border-r border-hp-gold/30"></div>
 
-      <h1 className="text-5xl font-bold text-center mb-12 text-hp-gold text-glow uppercase tracking-widest border-b-2 border-hp-gold pb-4">
-        OWL POST ORDERS
+      <h1 className="text-4xl font-bold text-center mb-16 text-hp-gold uppercase tracking-[0.4em] border-b border-hp-gold/10 pb-8">
+        Owl Post Orders
       </h1>
 
       {itemCount === 0 ? (
-        <div className="text-center text-hp-gold/60 text-2xl italic py-12">
-          Your post bag is empty. Hogwarts awaits your selection!
+        <div className="text-center text-hp-gold/40 text-xl italic py-20 font-serif">
+          "Your post bag is empty. Hogwarts awaits your selection."
         </div>
       ) : (
-        <div>
-          <div className="space-y-6 mb-12">
+        <div className="space-y-12">
+          <div className="space-y-4">
             {cartItems.map(item => {
               const magical = getMagicalData(item.id);
               return (
                 <div
                   key={item.id}
-                  className="flex items-center bg-hp-red/10 border border-hp-gold/30 rounded-sm p-6 hover:bg-hp-red/20 transition-all duration-300"
+                  className="flex items-center bg-hp-dark border border-hp-gold/10 p-6 hover:border-hp-gold/30 transition-all duration-700"
                 >
-                  <div className="relative w-28 h-28 mr-6 flex-shrink-0 border-2 border-hp-gold overflow-hidden">
+                  <div className="relative w-24 h-24 mr-8 flex-shrink-0 border border-hp-gold/20 overflow-hidden grayscale-[0.4]">
                     <Image
                       src={magical.image}
                       alt={magical.title}
                       fill
                       style={{ objectFit: 'cover' }}
-                      className="grayscale-25"
                     />
                   </div>
                   <div className="flex-grow">
-                    <h2 className="text-2xl font-bold text-hp-gold mb-1">{magical.title}</h2>
-                    <p className="text-white text-lg">${item.price.toFixed(2)} x {item.quantity}</p>
-                    <p className="text-hp-gold font-bold text-xl mt-2 italic">Subtotal: ${(item.price * item.quantity).toFixed(2)}</p>
+                    <h2 className="text-lg font-bold text-hp-gold tracking-widest uppercase mb-1">{magical.title}</h2>
+                    <p className="text-hp-parchment/50 text-xs tracking-widest uppercase">${item.price.toFixed(2)} x {item.quantity}</p>
                   </div>
-                  <div className="flex items-center space-x-3">
-                    <Button
-                      variant="secondary"
-                      size="small"
-                      onClick={() => updateQuantity(item.id, item.quantity - 1)}
-                      disabled={item.quantity === 1}
-                      className="bg-hp-dark border border-hp-gold/50 text-hp-gold hover:bg-hp-gold hover:text-hp-dark"
-                    >
-                      -
-                    </Button>
-                    <span className="text-white text-xl font-bold w-6 text-center">{item.quantity}</span>
-                    <Button
-                      variant="secondary"
-                      size="small"
-                      onClick={() => updateQuantity(item.id, item.quantity + 1)}
-                      className="bg-hp-dark border border-hp-gold/50 text-hp-gold hover:bg-hp-gold hover:text-hp-dark"
-                    >
-                      +
-                    </Button>
+                  <div className="flex items-center space-x-4">
+                    <div className="flex items-center border border-hp-gold/20">
+                      <button
+                        onClick={() => updateQuantity(item.id, item.quantity - 1)}
+                        disabled={item.quantity === 1}
+                        className="px-3 py-1 text-hp-gold/60 hover:text-hp-gold disabled:opacity-20 transition-colors"
+                      >
+                        -
+                      </button>
+                      <span className="text-hp-gold text-xs font-bold w-6 text-center">{item.quantity}</span>
+                      <button
+                        onClick={() => updateQuantity(item.id, item.quantity + 1)}
+                        className="px-3 py-1 text-hp-gold/60 hover:text-hp-gold transition-colors"
+                      >
+                        +
+                      </button>
+                    </div>
                     <Button
                       variant="danger"
                       size="small"
                       onClick={() => removeFromCart(item.id)}
-                      className="ml-4 border border-red-900 bg-red-900/50 hover:bg-red-700"
+                      className="text-[10px] py-1.5 px-3"
                     >
-                      BANISH
+                      Banish
                     </Button>
                   </div>
                 </div>
@@ -92,25 +88,24 @@ export default function CartPage() {
             })}
           </div>
 
-          <div className="bg-hp-red/20 border-2 border-hp-gold p-8 rounded-sm shadow-inner">
-            <div className="flex justify-between items-center text-2xl font-bold text-white mb-4">
-              <span className="tracking-wider uppercase">POST BAG CONTENT:</span>
+          <div className="bg-hp-dark border border-hp-gold/20 p-10 mt-16">
+            <div className="flex justify-between items-center text-xs tracking-[0.3em] text-hp-parchment/40 mb-6 uppercase">
+              <span>Post Bag Content:</span>
               <span>{itemCount} Artifacts</span>
             </div>
-            <div className="flex justify-between items-center text-4xl font-bold text-hp-gold mb-8 text-glow">
-              <span className="tracking-widest uppercase">TOTAL GALLEONS:</span>
+            <div className="flex justify-between items-center text-3xl font-light text-hp-gold mb-12 tracking-widest border-t border-hp-gold/10 pt-8">
+              <span className="text-sm tracking-[0.4em] uppercase opacity-60">Total Galleons:</span>
               <span>${total.toFixed(2)}</span>
             </div>
-            <div className="flex justify-end space-x-6">
-              <Button 
-                variant="danger" 
+            <div className="flex justify-end gap-8">
+              <button 
                 onClick={() => setShowClearCartConfirm(true)}
-                className="bg-hp-dark text-red-500 border border-red-500 hover:bg-red-500 hover:text-white transition-all duration-300"
+                className="text-[10px] tracking-[0.3em] text-red-900/50 hover:text-red-800 uppercase transition-colors font-bold"
               >
-                CLEAR BAG
-              </Button>
-              <Button className="bg-hp-gold text-hp-dark border-2 border-hp-dark hover:bg-white hover:scale-105 transition-all duration-500 text-xl font-extrabold px-12 py-4">
-                TRANSMUTE TO ORDER
+                Clear Bag
+              </button>
+              <Button className="px-12 py-4 text-sm">
+                Transmute to Order
               </Button>
             </div>
           </div>
@@ -118,23 +113,22 @@ export default function CartPage() {
       )}
 
       {showClearCartConfirm && (
-        <div className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50 backdrop-blur-sm">
-          <div className="bg-hp-dark border-4 border-hp-gold p-10 rounded-sm shadow-gold-glow max-w-md text-center">
-            <p className="text-hp-gold text-2xl font-bold mb-8 italic">"Are you certain you wish to banish all artifacts from your bag?"</p>
-            <div className="flex justify-center space-x-8">
-              <Button 
-                variant="secondary" 
+        <div className="fixed inset-0 bg-hp-dark/95 flex items-center justify-center z-50 backdrop-blur-sm animate-in fade-in duration-700">
+          <div className="bg-hp-dark border border-hp-gold/20 p-12 max-w-md text-center">
+            <p className="text-hp-gold text-lg font-bold mb-10 tracking-widest uppercase italic">"Banish all artifacts?"</p>
+            <div className="flex justify-center gap-8">
+              <button 
                 onClick={() => setShowClearCartConfirm(false)}
-                className="px-8 py-3 bg-hp-red/20 text-white hover:bg-hp-red/40"
+                className="text-xs tracking-widest text-hp-parchment/60 hover:text-hp-gold uppercase transition-colors"
               >
-                STAY
-              </Button>
+                Stay
+              </button>
               <Button 
                 variant="danger" 
                 onClick={handleClearCart}
-                className="px-8 py-3 bg-red-700 hover:bg-red-600 shadow-lg"
+                className="px-8 py-2 text-xs"
               >
-                BANISH ALL
+                Banish All
               </Button>
             </div>
           </div>

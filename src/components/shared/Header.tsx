@@ -8,23 +8,23 @@ export default function Header() {
   const itemCount = cartItems.reduce((total, item) => total + item.quantity, 0);
 
   return (
-    <header className="sticky top-0 z-50 bg-hp-dark/90 backdrop-blur-md border-b-4 border-hp-gold shadow-gold-glow">
-      <div className="container mx-auto px-6 py-4 flex flex-col md:flex-row justify-between items-center gap-4">
-        <Link href="/" className="group flex items-center gap-3">
-          <div className="h-10 w-10 bg-hp-gold rounded-full flex items-center justify-center shadow-gold-glow group-hover:scale-110 transition-transform">
-             <span className="text-hp-dark font-bold text-2xl">W</span>
+    <header className="sticky top-0 z-50 bg-hp-dark/95 backdrop-blur-sm border-b border-hp-gold/30">
+      <div className="container mx-auto px-6 py-6 flex flex-col md:flex-row justify-between items-center gap-6">
+        <Link href="/" className="group flex items-center gap-4">
+          <div className="h-12 w-12 border border-hp-gold/50 flex items-center justify-center rotate-45 group-hover:rotate-0 transition-transform duration-500">
+             <span className="text-hp-gold font-bold text-2xl -rotate-45 group-hover:rotate-0 transition-transform duration-500">W</span>
           </div>
-          <span className="text-3xl font-bold tracking-[0.2em] text-hp-gold text-glow group-hover:text-white transition-colors uppercase">
+          <span className="text-2xl font-bold tracking-[0.3em] text-hp-gold group-hover:text-hp-parchment transition-colors uppercase">
             Wizard Store
           </span>
         </Link>
-        <nav className="flex items-center space-x-10">
-          <Link href="/products" className="text-sm font-bold tracking-widest text-hp-gold hover:text-white transition-all uppercase border-b border-transparent hover:border-hp-gold">
+        <nav className="flex items-center space-x-12">
+          <Link href="/products" className="text-xs font-semibold tracking-[0.2em] text-hp-parchment/80 hover:text-hp-gold transition-all uppercase">
             The Vault
           </Link>
-          <Link href="/cart" className="relative group flex items-center gap-2">
-            <span className="text-sm font-bold tracking-widest text-hp-gold group-hover:text-white uppercase">Owl Post</span>
-            <div className="bg-hp-gold text-hp-dark px-2 py-0.5 rounded-sm font-bold text-xs group-hover:bg-white transition-colors">
+          <Link href="/cart" className="relative group flex items-center gap-3">
+            <span className="text-xs font-semibold tracking-[0.2em] text-hp-parchment/80 group-hover:text-hp-gold uppercase transition-colors">Owl Post</span>
+            <div className="border border-hp-gold/50 text-hp-gold px-2 py-0.5 text-[10px] font-bold group-hover:bg-hp-gold group-hover:text-hp-dark transition-all">
               {itemCount}
             </div>
           </Link>

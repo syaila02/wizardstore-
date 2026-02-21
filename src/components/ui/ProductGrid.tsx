@@ -57,19 +57,19 @@ export default function ProductGrid({ products }: { products: Product[] }) {
   return (
     <div className="space-y-12">
       {/* Search & Filter Controls */}
-      <div className="flex flex-col md:flex-row gap-6 bg-hp-dark/50 p-6 border-2 border-hp-gold/30 rounded-sm">
+      <div className="flex flex-col md:flex-row gap-8 bg-hp-dark p-8 border border-hp-gold/20 shadow-xl">
         <input
           type="text"
           placeholder="Search for artifacts..."
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
-          className="flex-grow bg-hp-dark border-2 border-hp-gold text-hp-gold p-3 rounded-sm focus:outline-none focus:shadow-gold-glow placeholder-hp-gold/40 font-cinzel"
+          className="flex-grow bg-hp-dark border-b border-hp-gold/30 text-hp-gold p-2 focus:outline-none focus:border-hp-gold transition-colors placeholder-hp-gold/30 font-cinzel text-sm"
         />
         
         <select
           value={selectedCategory}
           onChange={(e) => setSelectedCategory(e.target.value)}
-          className="bg-hp-dark border-2 border-hp-gold text-hp-gold p-3 rounded-sm focus:outline-none cursor-pointer font-cinzel uppercase text-sm"
+          className="bg-hp-dark border-b border-hp-gold/30 text-hp-gold p-2 focus:outline-none cursor-pointer font-cinzel uppercase text-xs tracking-widest"
         >
           {categories.map(cat => (
             <option key={cat} value={cat}>{cat}</option>
@@ -79,7 +79,7 @@ export default function ProductGrid({ products }: { products: Product[] }) {
         <select
           value={sortOrder}
           onChange={(e) => setSortOrder(e.target.value)}
-          className="bg-hp-dark border-2 border-hp-gold text-hp-gold p-3 rounded-sm focus:outline-none cursor-pointer font-cinzel uppercase text-sm"
+          className="bg-hp-dark border-b border-hp-gold/30 text-hp-gold p-2 focus:outline-none cursor-pointer font-cinzel uppercase text-xs tracking-widest"
         >
           <option value="default">Default Sorting</option>
           <option value="low">Price: Low to High</option>
@@ -87,48 +87,45 @@ export default function ProductGrid({ products }: { products: Product[] }) {
         </select>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 p-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16">
         {filteredAndSortedProducts.map(product => {
-          // TRANSFORMASI TAMPILAN SAJA
           const magical = getMagicalData(product.id);
           
           return (
             <div
               key={product.id}
-              className="group relative bg-hp-dark border-4 border-hp-gold p-1 rounded-sm overflow-hidden flex flex-col transform transition-all duration-500 hover:-translate-y-2 hover:rotate-1 shadow-gold-glow hover:shadow-gold-glow-hover"
+              className="group relative bg-hp-dark border border-hp-gold/20 p-2 transition-all duration-700 hover:border-hp-gold/50"
             >
-              {/* Ornamen Sudut ala Buku Tua */}
-              <div className="absolute top-0 left-0 w-8 h-8 border-t-4 border-l-4 border-hp-gold z-10"></div>
-              <div className="absolute top-0 right-0 w-8 h-8 border-t-4 border-r-4 border-hp-gold z-10"></div>
+              <div className="absolute top-0 left-0 w-6 h-6 border-t border-l border-hp-gold/40"></div>
+              <div className="absolute top-0 right-0 w-6 h-6 border-t border-r border-hp-gold/40"></div>
               
-              <Link href={`/products/${product.id}`} className="block relative h-72 w-full overflow-hidden border-b-2 border-hp-gold">
+              <Link href={`/products/${product.id}`} className="block relative h-80 w-full overflow-hidden grayscale-[0.4] group-hover:grayscale-0 transition-all duration-1000">
                 <Image
                   src={magical.image}
                   alt={magical.title}
                   fill
                   style={{ objectFit: 'cover' }}
-                  className="grayscale-25 group-hover:grayscale-0 transition-all duration-700 scale-110 group-hover:scale-100"
+                  className="transition-transform duration-[2s] group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-hp-gold opacity-10 mix-blend-overlay"></div>
               </Link>
               
-              <div className="p-6 flex-grow flex flex-col bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]">
+              <div className="p-8 flex flex-col items-center">
                 <Link href={`/products/${product.id}`}>
-                  <h2 className="text-2xl font-bold text-hp-gold mb-3 text-glow tracking-widest text-center uppercase border-b border-hp-gold/30 pb-2">
+                  <h2 className="text-xl font-bold text-hp-gold mb-4 tracking-[0.2em] text-center uppercase">
                     {magical.title}
                   </h2>
                 </Link>
-                <p className="text-gray-300 text-sm italic mb-6 flex-grow text-center font-serif leading-relaxed">
+                <p className="text-hp-parchment/60 text-xs italic mb-8 text-center font-serif leading-relaxed max-w-[250px]">
                   "{magical.description}"
                 </p>
-                <div className="flex flex-col items-center mt-auto">
-                  <span className="text-3xl font-bold text-hp-gold mb-2">${product.price.toFixed(2)}</span>
+                <div className="w-full flex flex-col items-center pt-6 border-t border-hp-gold/10">
+                  <span className="text-2xl font-light text-hp-gold/80 mb-6 tracking-widest">${product.price.toFixed(2)}</span>
                   <AddToCartButton product={{...product, title: magical.title}} />
                 </div>
               </div>
               
-              <div className="absolute bottom-0 left-0 w-8 h-8 border-b-4 border-l-4 border-hp-gold z-10"></div>
-              <div className="absolute bottom-0 right-0 w-8 h-8 border-b-4 border-r-4 border-hp-gold z-10"></div>
+              <div className="absolute bottom-0 left-0 w-6 h-6 border-b border-l border-hp-gold/40"></div>
+              <div className="absolute bottom-0 right-0 w-6 h-6 border-b border-r border-hp-gold/40"></div>
             </div>
           );
         })}
