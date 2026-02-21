@@ -6,22 +6,30 @@ import Button from '@/components/ui/Button';
 import { useCart } from '@/contexts/CartContext';
 import { Product } from '@/lib/types';
 import { getMagicalData } from '../../lib/transformations';
+import Toast from './Toast';
+import { useState } from 'react';
 
 function AddToCartButton({ product }: { product: Product }) {
   const { addToCart } = useCart();
+  const [showToast, setShowToast] = useState(false);
 
   return (
-    <Button 
-      onClick={() => addToCart(product)} 
-      className="w-full mt-6 py-4 text-2xl border-2 border-hp-gold bg-hp-red text-hp-gold hover:bg-hp-gold hover:text-hp-dark transition-all duration-300 shadow-gold-glow uppercase font-bold"
-    >
-      ACQUIRE ARTIFACT
-    </Button>
+    <>
+      <Button 
+        onClick={() => {
+          addToCart(product);
+          setShowToast(true);
+        }} 
+        className="w-full mt-6 py-4 text-2xl border-2 border-hp-gold bg-hp-red text-hp-gold hover:bg-hp-gold hover:text-hp-dark transition-all duration-300 shadow-gold-glow uppercase font-bold"
+      >
+        ACQUIRE ARTIFACT
+      </Button>
+      <Toast isVisible={showToast} onClose={() => setShowToast(false)} />
+    </>
   );
 }
 
 export default function ProductDetailClient({ product }: { product: Product }) {
-  // TRANSFORMASI TAMPILAN SAJA
   const magical = getMagicalData(product.id);
   
   return (
