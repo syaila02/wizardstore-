@@ -33,7 +33,7 @@ export default function CartPage() {
 
       {itemCount === 0 ? (
         <div className="text-center text-hp-gold/40 text-xl italic py-20 font-serif">
-          "Your post bag is empty. Hogwarts awaits your selection."
+          &quot;Your post bag is empty. Hogwarts awaits your selection.&quot;
         </div>
       ) : (
         <div className="space-y-12">
@@ -115,7 +115,7 @@ export default function CartPage() {
       {showClearCartConfirm && (
         <div className="fixed inset-0 bg-hp-dark/95 flex items-center justify-center z-50 backdrop-blur-sm animate-in fade-in duration-700">
           <div className="bg-hp-dark border border-hp-gold/20 p-12 max-w-md text-center">
-            <p className="text-hp-gold text-lg font-bold mb-10 tracking-widest uppercase italic">"Banish all artifacts?"</p>
+            <p className="text-hp-gold text-lg font-bold mb-10 tracking-widest uppercase italic">&quot;Banish all artifacts?&quot;</p>
             <div className="flex justify-center gap-8">
               <button 
                 onClick={() => setShowClearCartConfirm(false)}

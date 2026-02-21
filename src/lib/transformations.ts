@@ -1,66 +1,44 @@
 
-/**
- * TRANSFORMASI TAMPILAN SAJA
- * Helper untuk mengubah data asli dari dummyjson menjadi item dunia sihir
- */
-
 export const magicNames = [
-  "Elder Wand Replica",
-  "Phoenix Feather Wand",
-  "Dragon Heartstring Wand",
-  "Invisibility Cloak",
-  "Time Turner",
-  "Marauder's Map",
-  "Advanced Potion-Making Book",
-  "Polyjuice Potion Kit",
-  "Golden Snitch Replica",
-  "Gryffindor House Robe",
-  "Slytherin House Robe",
-  "Ravenclaw House Robe",
-  "Hufflepuff House Robe",
-  "Nimbus 2000 Broomstick",
-  "Firebolt Racing Broom",
-  "Monster Book of Monsters",
-  "Quick-Quotes Quill",
-  "Remembrall",
-  "Omnioculars",
-  "Wizard's Chess Set",
-  "Chocolate Frog",
-  "Bertie Bott's Every Flavor Beans",
-  "Butterbeer Mug",
-  "Pensieve Crystal Bowl",
-  "Deluminator",
-  "Sorting Hat Replica",
-  "Hogwarts Trunk",
-  "Triwizard Trophy",
-  "Howler Stationery",
-  "Dobby's Sock Collection"
+  "Cute Owl Plushie",
+  "Sparkling Star Wand",
+  "Pink Potion of Joy",
+  "Golden Snitch Charm",
+  "Mini Cauldron Mug",
+  "Hogwarts Letter Wallet",
+  "Magic Spell Stickers",
+  "Dreamy Crystal Ball",
+  "Witch's Aesthetic Hat",
+  "Floating Feather Pen",
+  "Midnight Cat Pin",
+  "Galaxy Slime Potion",
+  "Rainbow Phoenix Keyring",
+  "Fluffy Monster Notebook",
+  "Starry Night Robe"
 ];
 
 export const magicDescriptions = [
-  "Crafted in Ollivanders with ancient magical techniques.",
-  "A legendary artifact from the forbidden halls of Hogwarts.",
-  "Rare magical equipment approved by the Ministry of Magic.",
-  "Used by famous wizards to traverse the halls unseen.",
-  "Harness the power of chronomancy with this rare device.",
-  "A masterpiece of cartography showing every secret passage.",
-  "Contains the most guarded secrets of the potions master.",
-  "Essential for those who wish to walk in someone else's skin.",
-  "The fastest ball in Quidditch, captured for your collection.",
-  "Worn by the bravest of heart at the Gryffindor common room."
+  "A super cute and soft companion for your magical journey.",
+  "Spreads sparkles and happiness whenever you give it a wave!",
+  "Smells like strawberries and makes you feel like you're floating on clouds.",
+  "A tiny, shiny friend that follows you everywhere you go.",
+  "Perfect for your morning hot chocolate or pumpkin juice.",
+  "Carry your chocolate frog cards in style with this cute wallet.",
+  "Decorate your spellbook with these adorable magical creatures.",
+  "Shows you your happiest memories in beautiful pastel colors."
 ];
 
 export const magicImages = [
-  "https://images.unsplash.com/photo-1551269901-5c5e14c25df7", // Magic ball
-  "https://images.unsplash.com/photo-1590184014761-86555b9ba750", // Books
-  "https://images.unsplash.com/photo-1514316454349-750a7fd3da3a", // Old paper
-  "https://images.unsplash.com/photo-1509248961158-e54f6934749c", // Potion
-  "https://images.unsplash.com/photo-1481162853330-03e352fc8773", // Castle
-  "https://images.unsplash.com/photo-1534447677768-be436bb09401", // Abstract magic
-  "https://images.unsplash.com/photo-1517462964521-f002f23bb10f", // Old library
-  "https://images.unsplash.com/photo-1478720568477-152d9b164e26", // Movie magic
-  "https://images.unsplash.com/photo-1520110120385-c285d6b09c74", // Gold textures
-  "https://images.unsplash.com/photo-1523480717984-24cba35ae1ee"  // Mystery
+  "https://images.unsplash.com/photo-1544030109-221244b07b9a", 
+  "https://images.unsplash.com/photo-1534447677768-be436bb09401", 
+  "https://images.unsplash.com/photo-1519681393784-d120267933ba", 
+  "https://images.unsplash.com/photo-1528459801416-a9e53bbf4e17", 
+  "https://images.unsplash.com/photo-1550684848-fac1c5b4e853", 
+  "https://images.unsplash.com/photo-1518531933037-91b2f5f229cc", 
+  "https://images.unsplash.com/photo-1490730141103-6cac27aaab94",
+  "https://images.unsplash.com/photo-1513519245088-0e12902e5a38", 
+  "https://images.unsplash.com/photo-1515405290399-ed3ee296d68d", 
+  "https://images.unsplash.com/photo-1520110120385-c285d6b09c74" 
 ];
 
 export const getMagicalData = (id: number) => {

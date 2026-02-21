@@ -5,6 +5,7 @@ import './globals.css';
 import { CartProvider } from '@/contexts/CartContext';
 import Header from '@/components/shared/Header';
 import Footer from '@/components/shared/Footer';
+import MagicalModal from '@/components/ui/MagicalModal';
 
 const cinzel = Cinzel({
   subsets: ['latin'],
@@ -30,6 +31,7 @@ export default function RootLayout({
             <Header />
             <main className="flex-grow container mx-auto p-4 py-8">{children}</main>
             <Footer />
+            <MagicalModal />
           </div>
         </CartProvider>
       </body>

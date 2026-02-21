@@ -13,6 +13,8 @@ export default function MagicalModal() {
       <div className="relative bg-hp-dark border border-hp-gold/30 p-12 max-w-md w-full">
         {/* Corner Ornaments */}
         <div className="absolute top-4 left-4 w-8 h-8 border-t border-l border-hp-gold/40"></div>
+        <div className="absolute top-4 right-4 w-8 h-8 border-t border-r border-hp-gold/40"></div>
+        <div className="absolute bottom-4 left-4 w-8 h-8 border-b border-l border-hp-gold/40"></div>
         <div className="absolute bottom-4 right-4 w-8 h-8 border-b border-r border-hp-gold/40"></div>
 
         <div className="text-center space-y-8">
@@ -27,7 +29,7 @@ export default function MagicalModal() {
           </h2>
           
           <p className="text-hp-parchment/80 text-sm italic font-serif leading-relaxed">
-            "The <span className="text-hp-gold"> {lastAddedItem} </span> has been successfully added to your magical post bag."
+            &quot;The <span className="text-hp-gold"> {lastAddedItem} </span> has been successfully added to your magical post bag.&quot;
           </p>
 
           <div className="pt-6">
@@ -35,7 +37,7 @@ export default function MagicalModal() {
               onClick={() => setLastAddedItem(null)}
               className="w-full py-3"
             >
-              Continue Shopping
+              Close
             </Button>
           </div>
         </div>
