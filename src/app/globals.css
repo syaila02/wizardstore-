@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-hp-red font-cinzel text-white selection:bg-hp-gold selection:text-hp-dark overflow-x-hidden;
+    background-image: 
+      radial-gradient(circle at center, rgba(116, 16, 16, 0.8) 0%, rgba(50, 0, 0, 1) 100%),
+      url('https://www.transparenttextures.com/patterns/black-paper.png');
+  }
+}
+
+@layer components {
+  .magical-card {
+    @apply bg-hp-dark border-4 border-hp-gold p-1 rounded-sm shadow-gold-glow transition-all duration-500 hover:shadow-gold-glow-hover hover:-translate-y-2;
+    background-image: url('https://www.transparenttextures.com/patterns/carbon-fibre.png');
+  }
+  
+  .text-gold-gradient {
+    @apply bg-gradient-to-b from-hp-gold via-yellow-200 to-hp-gold bg-clip-text text-transparent;
+  }
+}
+
+@layer utilities {
+  .text-glow {
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.5), 0 0 20px rgba(255, 215, 0, 0.2);
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #121212;
+}
+::-webkit-scrollbar-thumb {
+  background: #FFD700;
+  border-radius: 0;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #fff;
+}
