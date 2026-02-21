@@ -13,6 +13,8 @@ interface CartItem extends Product {
 
 interface CartContextType {
   cartItems: CartItem[];
+  lastAddedItem: string | null;
+  setLastAddedItem: (title: string | null) => void;
   addToCart: (product: Product) => void;
   removeFromCart: (productId: number) => void;
   updateQuantity: (productId: number, quantity: number) => void;
@@ -24,23 +26,26 @@ interface CartContextType {
 const CartContext = createContext<CartContextType | undefined>(undefined);
 
 export const CartProvider = ({ children }: { children: ReactNode }) => {
-  
-  const [cartItems, setCartItems] = useState<CartItem[]>(() => {
-    if (typeof window !== 'undefined') {
-      const savedCart = localStorage.getItem('cartItems');
-      return savedCart ? JSON.parse(savedCart) : [];
-    }
-    return [];
-  });
+  const [cartItems, setCartItems] = useState<CartItem[]>([]);
+  const [isInitialized, setIsInitialized] = useState(false);
+  const [lastAddedItem, setLastAddedItem] = useState<string | null>(null);
 
-  
   useEffect(() => {
-    if (typeof window !== 'undefined') {
+    const savedCart = localStorage.getItem('cartItems');
+    if (savedCart) {
+      setCartItems(JSON.parse(savedCart));
+    }
+    setIsInitialized(true);
+  }, []);
+
+  useEffect(() => {
+    if (isInitialized) {
       localStorage.setItem('cartItems', JSON.stringify(cartItems));
     }
-  }, [cartItems]);
+  }, [cartItems, isInitialized]);
 
   const addToCart = (product: Product) => {
+    setLastAddedItem(product.title);
     setCartItems(prevItems => {
       const existingItem = prevItems.find(item => item.id === product.id);
       if (existingItem) {
